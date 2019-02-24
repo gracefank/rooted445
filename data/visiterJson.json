@@ -1,0 +1,18 @@
+ default {
+    "bee": {
+    "name": "bee",
+    "value": "15",
+    "plantTypes": []
+},
+ "butterfly": {
+    "name": "butterfly",
+     "value":"10",
+    "plantTypes": []
+    },
+ "snail": {
+    "name": "snail",
+    "value":"15",
+     "plantTypes": []
+    
+    }
+}   

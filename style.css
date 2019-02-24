@@ -72,3 +72,17 @@ body {
   .tabcontent {padding-top: 15px;}
   .tabcontent a {font-size: 18px;}
 }
+
+.blocks {
+  margin-top: 4%;
+  margin-left: 4%;
+  display: inline-block; 
+  border: solid 1px red; 
+  width: 250px; 
+  height: 150px;
+}
+
+.wrap{
+    width:1050px;    
+}
+
