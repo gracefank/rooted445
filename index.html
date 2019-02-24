@@ -16,14 +16,14 @@
 
 	function drag(ev) {
 	  ev.dataTransfer.setData("text", ev.target.id);
+	  ev.dataTransfer.effectAllowed = 'copy';
 	}
 
 	function drop(ev) {
 	  ev.preventDefault();
 	  var data = ev.dataTransfer.getData("text");
 	  ev.target.appendChild(document.getElementById(data).cloneNode(true));
-	  replace.id = "invitem";
-	  document.getElementById(data).setAttribute("draggable","true");
+		document.getElementById(data).setAttribute("draggable","false");
 	  document.getElementById(data).setAttribute("ondragstart","drag(event)");
 	  ev.target.style.backgroundImage = "none";
 	}
