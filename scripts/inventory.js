@@ -47,8 +47,9 @@ function setupInventory() {
 		for (x in data.items) {
 			newItem = new Item(data.items[x].name,
 							   data.items[x].cost,
-							   data.items[x].description);
-			
+							   data.items[x].description,
+						   		data.items[x].imgpath);
+
 			console.log("Key: " + data.items[x].key);
 			inventory[data.items[x].key] = newItem;
 		}

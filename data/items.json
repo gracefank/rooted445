@@ -2,30 +2,42 @@
 "items" : [
 	{
 		"key"	:	"sag",
-		"name"	:	"Saguaro", 
+		"name"	:	"Saguaro",
 		"cost"	:	1000,
-		"description"	:	"The saguaro is a giant cactus native to the American Southwest!"
+		"description"	:	"The saguaro is a giant cactus native to the American Southwest!",
+		"imgpath"	:	"assets/sag.png"
 	},
-	
+
 	{
 		"key"	:	"catnip",
-		"name"	:	"Catnip", 
+		"name"	:	"Catnip",
 		"cost"	:	250,
-		"description"	:	"Catnip is a tasty treat for our furry feline friends!"
-	}, 
+		"description"	:	"Catnip is a tasty treat for our furry feline friends!",
+		"imgpath"	:	"assets/catnip.png"
+	},
 
 	{
 		"key"	:	"cactus",
-		"name"	:	"Cactus", 
+		"name"	:	"Cactus",
 		"cost"	:	150,
-		"description"	:	"spiky bois" 
+		"description"	:	"spiky bois",
+		"imgpath"	:	"assets/cactus.png"
 	},
 
 	{
 		"key"	:	"dandelion",
-		"name"	:	"Dandelion", 
+		"name"	:	"Dandelion",
 		"cost"	:	25,
-		"description" :	"weed bois"
+		"description" :	"weed bois",
+		"imgpath"	:	"assets/dandelion.png"
+	},
+
+	{
+		"key"	:	"pot1",
+		"name"	:	"Water Pot",
+		"cost"	:	25,
+		"description" :	"Moist",
+		"imgpath"	:	"assets/pot-plant1"
 	}
 ]
 }
