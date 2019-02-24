@@ -10,6 +10,9 @@
     <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
 
     <script>
+
+    var counter = 0;
+
 	function allowDrop(ev) {
 	  ev.preventDefault();
 	}
@@ -22,9 +25,12 @@
 	function drop(ev) {
 	  ev.preventDefault();
 	  var data = ev.dataTransfer.getData("text");
-	  ev.target.appendChild(document.getElementById(data).cloneNode(true));
-		document.getElementById(data).setAttribute("draggable","false");
+	  var newitem = ev.target.appendChild(document.getElementById(data).cloneNode(true));
+	  document.getElementById(data).setAttribute("draggable","false");
 	  document.getElementById(data).setAttribute("ondragstart","drag(event)");
+	  document.getElementById(data).setAttribute("ondblclick","removeItem(this.id)");
+	  counter = counter+1;
+	  newitem.id=ev.currentTarget.id + counter;
 	  ev.target.style.backgroundImage = "none";
 	}
 	</script>
@@ -200,6 +206,15 @@
 	            loop();
 	    }, rand);
 	}());
+
+	function removeItem(itemID){
+		console.log(itemID);
+		var parent = document.getElementById(itemID).parentNode; 
+		parent.style.backgroundImage = "url('assets/down-arrow.png')";
+		while (parent.firstChild) {
+			parent.removeChild(parent.firstChild);
+		}
+	}
 
 </script>
 
