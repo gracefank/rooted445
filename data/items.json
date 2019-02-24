@@ -49,19 +49,19 @@
 	},
 
 	{
-		"key"	:	"wheelbarrow",
-		"name"	:	"Wheelbarrow",
-		"cost"	:	25,
-		"description" :	"Wheely",
-		"imgpath"	:	"assets/flower-barrel.png"
-	},
-
-	{
 		"key"	:	"mushrooms",
 		"name"	:	"Mushroomss",
 		"cost"	:	25,
 		"description" :	"Amanita muscaria",
 		"imgpath"	:	"assets/mushrooms"
+	},
+
+	{
+		"key"	:	"wheelbarrow",
+		"name"	:	"Wheelbarrow",
+		"cost"	:	25,
+		"description" :	"Wheely",
+		"imgpath"	:	"assets/flower-barrel.png"
 	}
 ]
 }
