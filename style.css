@@ -136,3 +136,10 @@ body {
 	top: 500px;
 	left: 700px;
 }
+
+.mountain_lion {
+  width: 250px;
+  position: absolute;
+  top: 400px;
+  left: 500px;
+}
