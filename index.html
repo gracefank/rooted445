@@ -16,13 +16,14 @@
 
 	function drag(ev) {
 	  ev.dataTransfer.setData("text", ev.target.id);
+	  ev.dataTransfer.effectAllowed = 'copy';
 	}
 
 	function drop(ev) {
 	  ev.preventDefault();
 	  var data = ev.dataTransfer.getData("text");
-	  ev.target.appendChild(document.getElementById(data));
-	  document.getElementById(data).setAttribute("draggable","true");
+	  ev.target.appendChild(document.getElementById(data).cloneNode(true));
+		document.getElementById(data).setAttribute("draggable","false");
 	  document.getElementById(data).setAttribute("ondragstart","drag(event)");
 	  ev.target.style.backgroundImage = "none";
 	}
@@ -48,12 +49,10 @@
 
 <div id="store" class="tabcontent">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	
 	<a class="my-money">
 		<h5>My Money</h5>
 		<p><span id="currMoney"></span> <img src="assets/leaf.png"></p>
 	</a>
-	
 	<a href="#" class="item-card">
 	  <img src="assets/flower-barrel.png">
 	  <p>Flower Barrel</p>
@@ -86,7 +85,6 @@
 	  <p>Flower Barrel</p>
 	  <p class="quantity">x1</p>
   </a>
- 
  <a href="#" class="item-card">
 	  <img id="drag4" src="assets/pot-plant2.png" draggable="true" ondragstart="drag(event)">
 	  <p>Potted Plant (S)</p>
@@ -104,9 +102,8 @@
 	  <p>Mushrooms</p>
 	  <p class="quantity">x1</p>
   </a>
-
- 
 </div>
+
 
 <div id="main" class="tab">
   <button class="tablinks" onclick="openNav(event, 'store')">Store</button>
@@ -161,7 +158,7 @@
 	    var rand = Math.round(Math.random() * (20000)) + 200;
 	    setTimeout(function() {
 	            displayVisitor();
-	            loop();  
+	            loop();
 	    }, rand);
 	}());
 
@@ -200,7 +197,7 @@
 	    var rand = Math.round(Math.random() * (30000)) + 500;
 	    setTimeout(function() {
 	            deleteVisitor();
-	            loop();  
+	            loop();
 	    }, rand);
 	}());
 

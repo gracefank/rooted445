@@ -75,10 +75,10 @@ body {
 .blocks {
   margin-top: 4%;
   margin-left: 4%;
-  display: inline-block; 
-  width: 250px; 
+  display: inline-block;
+  width: 250px;
   height: 150px;
-  position: absolute; 
+  position: absolute;
   background-image: url("assets/down-arrow.png");
   background-repeat: no-repeat;
 }
@@ -88,7 +88,7 @@ body {
 }
 
 .wrap{
-    width:1050px;    
+    width:1050px;
 }
 
 
@@ -138,6 +138,7 @@ body {
   display: block;
   z-index: 5000 !important;
   position: absolute;
+
 }
 
 .my-money {
