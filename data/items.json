@@ -1,0 +1,31 @@
+{
+"items" : [
+	{
+		"key"	:	"sag",
+		"name"	:	"Saguaro", 
+		"cost"	:	1000,
+		"description"	:	"The saguaro is a giant cactus native to the American Southwest!"
+	},
+	
+	{
+		"key"	:	"catnip",
+		"name"	:	"Catnip", 
+		"cost"	:	250,
+		"description"	:	"Catnip is a tasty treat for our furry feline friends!"
+	}, 
+
+	{
+		"key"	:	"cactus",
+		"name"	:	"Cactus", 
+		"cost"	:	150,
+		"description"	:	"spiky bois" 
+	},
+
+	{
+		"key"	:	"dandelion",
+		"name"	:	"Dandelion", 
+		"cost"	:	25,
+		"description" :	"weed bois"
+	}
+]
+}

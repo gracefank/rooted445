@@ -1,0 +1,138 @@
+body {
+	background-image: url("assets/bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat; /* Do not repeat the image */
+	font-family: sans-serif;
+}
+
+.tab {
+  overflow: hidden;
+  position: absolute;
+  top: 120px;
+  right: -65px;
+  transform: rotate(-90deg);
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: #CD6528;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  border-radius: 3px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #DB8555;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+.tabcontent {
+  height: 90%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #CD6528;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding: 60px 0;
+  margin-bottom: 30px;
+}
+
+.tabcontent a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #232323;
+  display: block;
+  transition: 0.3s;
+}
+
+.tabcontent a:hover {
+  color: #666;
+}
+
+.tabcontent .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .tabcontent {padding-top: 15px;}
+  .tabcontent a {font-size: 18px;}
+}
+
+.blocks {
+  margin-top: 4%;
+  margin-left: 4%;
+  display: inline-block; 
+  border: solid 1px red; 
+  width: 250px; 
+  height: 150px;
+}
+
+.wrap{
+    width:1050px;    
+}
+
+
+.item-card {
+	background-color: #EEE9DD;
+	padding: 20px 10px 30px;
+	margin: 20px;
+	border-radius: 2px;
+	text-align: center;
+}
+
+.item-card p {
+	margin: 0;
+	padding: 0 0 5px;
+}
+
+.item-card img {
+	width: 100%;
+}
+
+.money {
+	border-radius: 5px;
+	border: none;
+	background-color: #CD6528;
+	padding: 8px;
+	font-size: 16px;
+	vertical-align: center;
+}
+
+.money:hover {
+	background-color: #DB8555;
+	cursor: pointer;
+}
+
+.money img {
+	width: 20px !important;
+	vertical-align: middle;
+}
+
+.quantity {
+	font-size: 14px;
+}
+
+.visitor {
+	width: 50px;
+	position: absolute;
+	top: 500px;
+	left: 700px;
+}
