@@ -33,7 +33,7 @@ body {
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: #DB8555;
 }
 
 .tabcontent {
@@ -59,10 +59,6 @@ body {
   transition: 0.3s;
 }
 
-.tabcontent a:hover {
-  color: #666;
-}
-
 .tabcontent .closebtn {
   position: absolute;
   top: 0;
@@ -80,9 +76,15 @@ body {
   margin-top: 4%;
   margin-left: 4%;
   display: inline-block; 
-  border: solid 1px red; 
   width: 250px; 
   height: 150px;
+  position: absolute; 
+  background-image: url("assets/down-arrow.png");
+  background-repeat: no-repeat;
+}
+
+.blocks img {
+  height: 100%;
 }
 
 .wrap{
@@ -111,7 +113,7 @@ body {
 	border-radius: 5px;
 	border: none;
 	background-color: #CD6528;
-	padding: 8px;
+	padding: 8px 16px;
 	font-size: 16px;
 	vertical-align: center;
 }
@@ -132,14 +134,93 @@ body {
 
 .visitor {
 	width: 50px;
-	position: absolute;
-	top: 500px;
-	left: 700px;
+  height: auto !important;
+  display: block;
+  z-index: 5000 !important;
+  position: absolute;
 }
 
-.mountain_lion {
-  width: 250px;
-  position: absolute;
-  top: 400px;
-  left: 500px;
+.my-money {
+  background-color: #EEE9DD;
+  display: inline;
+  padding: 20px;
+  border-radius: 3px;
+  margin: 10px 20px;
+}
+
+.my-money h5 {
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.my-money p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.my-money img {
+  width: 30px;
+  vertical-align: middle;
+}
+
+#div1 {
+  top: 100px;
+  left:200px;
+}
+
+#div2 {
+  top: 100px;
+  left:520px;
+}
+
+#div3 {
+  top: 150px;
+  left:810px;
+}
+
+#div4 {
+  top: 180px;
+  left:1100px;
+}
+
+#div5 {
+  top: 240px;
+  left:170px;
+}
+
+#div6 {
+  top: 250px;
+  left:450px;
+}
+
+#div7 {
+  top: 330px;
+  left:770px;
+}
+
+#div8 {
+  top: 350px;
+  left:1100px;
+}
+
+#div9 {
+  top: 450px;
+  left:20px;
+}
+
+#div10 {
+  top: 450px;
+  left:300px;
+}
+
+#div11 {
+  top: 500px;
+  left:580px;
+}
+
+#div12 {
+  top: 490px;
+  left:970px;
 }
