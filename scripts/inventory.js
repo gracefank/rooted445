@@ -8,27 +8,35 @@ class Item {
 		this.name = name;
 		this.cost = cost;
 
-		// player starts with 0 of an item
-		this.amount = 0;
+		// player starts with 0 of an item in inventory
+		this.amountStored = 0;
+
+		// player starts with 0 of an item placed in the world
+		this.amountPlaced = 0;
 	}
 
 	// for placing an item in the world
 	place() {
-		alert("Placing item");
-		this.stored = false;
+		console.log("Placing item " + this.name);
+		if (this.amountStored >= 0) {
+			amountStored--;
+			amountPlaced++;
+		}
 	}
 
 	// for storing an item
 	store() {
-		alert("Storing item");
-		this.stored = true;
-	}
+		console.log("Storing item " + this.name);
+		if (this.amountPlaced >= 0) {
+			amountStored++;
+			amountPlaced--;
+		}	}
 
 	// player buys an item
 	buy() {
 		if (money >= this.cost) {
 			money -= this.cost;
-			this.amount++;
+			this.amountStored++;
 		}
 	}
 }
@@ -39,24 +47,11 @@ function setupInventory() {
 		for (x in data.items) {
 			newItem = new Item(data.items[x].name,
 							   data.items[x].cost);
-			//console.log(newItem.name);
-			inventory.push(newItem);
+			console.log("Key :" + data.items[x].key);
+			inventory[data.items[x].key] = newItem;
 		}
 		whenDone();
-    	// global_save_json = data.items;
-    	// var countPosts = Object.keys(data.items).length;
-    	// console.log(countPosts);
 	});
-
-    // let catnip = new Item("Catnip", 500, true);
-    // let cactus = new Item("Cactus", 150, false);
-    // let tulip = new Item("Tulip", 50, false);
-    // let dandelion = new Item("Dandelion", 25, false);
-
-    // inventory.push(catnip);
-    // inventory.push(cactus);
-    // inventory.push(tulip);
-    // inventory.push(dandelion);
 }
 
 function whenDone() {
