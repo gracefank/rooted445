@@ -6,20 +6,59 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 </header>
 <body>
+	<img class="visitor" src="assets/butterfly.gif">
 <div id="store" class="tabcontent">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Locked Item 1</a>
-  <a href="#">Locked Item 2</a>
-  <a href="#">Locked Item 3</a>
-  <a href="#">Locked Item 4</a>
+	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<a href="#" class="item-card">
+	  <img src="assets/flower-barrel.png">
+	  <p>Item 1</p>
+	  <button class="money">2 <img  src="assets/leaf.png"></button>
+	</a>
+
+	<a href="#" class="item-card">
+		<img src="assets/pot-plant1.png">
+	<p>Item 1</p>
+	<button class="money">2 <img  src="assets/leaf.png"></button>  
+	</a> 
+
+	<a href="#" class="item-card">
+	  <img src="assets/mushrooms.png">
+	  <p>Item 1</p>
+	  <button class="money">2 <img  src="assets/leaf.png"></button>
+	</a>
+
+	<a href="#" class="item-card">
+	  <img src="assets/pot-plant2.png">
+	  <p>Item 1</p>
+	  <button class="money"><img  src="assets/leaf.png"></button>
+	</a>
 </div>
 
 <div id="inventory" class="tabcontent">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="#">Item 1</a>
-  <a href="#">Item 2</a>
-  <a href="#">Item 3</a>
-  <a href="#">Item 4</a>
+  <a href="#" class="item-card">
+	  <img src="assets/flower-barrel.png">
+	  <p>Item 1</p>
+	  <p class="quantity">x1</p>
+  </a>
+  
+  <a href="#" class="item-card">
+  	<img src="assets/pot-plant1.png">
+	<p>Item 1</p>
+	  <p class="quantity">x1</p>
+  </a> 
+
+  <a href="#" class="item-card">
+	  <img src="assets/mushrooms.png">
+	  <p>Item 1</p>
+	  <p class="quantity">x1</p>
+  </a>
+
+  <a href="#" class="item-card">
+	  <img src="assets/pot-plant2.png">
+	  <p>Item 1</p>
+	  <p class="quantity">x1</p>
+  </a>
 </div>
 
 
@@ -50,7 +89,7 @@
 	function closeNav() {
   	  document.getElementById("inventory").style.width = "0";
 	  document.getElementById("store").style.width = "0";
-      document.getElementById("main").style.right = "-64px";
+      document.getElementById("main").style.right = "-65px";
 	}
 </script>
 
