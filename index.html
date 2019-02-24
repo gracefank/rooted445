@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-
 <header>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/inventory.js"></script>
+    <script type="text/javascript" src="scripts/game.js"></script>
 </header>
 
 <body>
@@ -63,8 +63,8 @@
 	<a href="#" class="item-card">
 		<img src="assets/pot-plant1.png">
 	<p>Item 1</p>
-	<button class="money">2 <img  src="assets/leaf.png"></button>  
-	</a> 
+	<button class="money">2 <img  src="assets/leaf.png"></button>
+	</a>
 
 	<a href="#" class="item-card">
 	  <img src="assets/mushrooms.png">
@@ -86,12 +86,12 @@
 	  <p>Item 1</p>
 	  <p class="quantity">x1</p>
   </a>
-  
+
   <a href="#" class="item-card">
   	<img src="assets/pot-plant1.png">
 	<p>Item 1</p>
 	  <p class="quantity">x1</p>
-  </a> 
+  </a>
 
   <a href="#" class="item-card">
 	  <img src="assets/mushrooms.png">
@@ -127,7 +127,7 @@
 	    tablinks[i].className = tablinks[i].className.replace(" active", "");
 	  }
 	  document.getElementById(tabName).style.display = "block";
-	  document.getElementById(tabName).style.width = "300px";  
+	  document.getElementById(tabName).style.width = "300px";
 	  evt.currentTarget.className += " active";
   	  document.getElementById("main").style.right = "235px";
 	}
