@@ -1,10 +1,10 @@
 {
 "items" : [
 	{
-	"key"	:	"sag",
-	"name"	:	"Saguaro", 
-	"cost"	:	1000,
-	"description"	:	"The saguaro is a giant cactus native to the American Southwest!"
+		"key"	:	"sag",
+		"name"	:	"Saguaro", 
+		"cost"	:	1000,
+		"description"	:	"The saguaro is a giant cactus native to the American Southwest!"
 	},
 	
 	{
