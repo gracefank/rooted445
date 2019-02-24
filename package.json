@@ -1,0 +1,10 @@
+{
+  "name": "rooted445",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/gracekfan/rooted445.git",
+  "license": "MIT",
+  "dependencies": {
+    "http-server": "^0.11.1"
+  }
+}
