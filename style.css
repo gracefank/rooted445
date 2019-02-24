@@ -9,7 +9,7 @@ body {
   overflow: hidden;
   position: absolute;
   top: 120px;
-  right: -65px;
+  right: -28px;
   transform: rotate(-90deg);
 }
 
@@ -135,7 +135,6 @@ body {
 .visitor {
 	width: 50px;
   height: auto !important;
-  display: block;
   z-index: 5000 !important;
   position: absolute;
 

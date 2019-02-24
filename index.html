@@ -83,31 +83,27 @@
   <a href="#" class="item-card">
 	  <img id="drag1" src="assets/flower-barrel.png" draggable="true" ondragstart="drag(event)">
 	  <p>Flower Barrel</p>
-	  <p class="quantity">x1</p>
   </a>
  <a href="#" class="item-card">
 	  <img id="drag4" src="assets/pot-plant2.png" draggable="true" ondragstart="drag(event)">
 	  <p>Potted Plant (S)</p>
-	  <p class="quantity">x1</p>
   </a>
 
   <a href="#" class="item-card">
   	<img id="drag2" src="assets/pot-plant1.png" draggable="true" ondragstart="drag(event)">
 	<p>Potted Plant (L)</p>
-	  <p class="quantity">x1</p>
   </a>
 
   <a href="#" class="item-card">
 	  <img id="drag3" src="assets/mushrooms.png" draggable="true" ondragstart="drag(event)">
 	  <p>Mushrooms</p>
-	  <p class="quantity">x1</p>
   </a>
 </div>
 
 
 <div id="main" class="tab">
-  <button class="tablinks" onclick="openNav(event, 'store')">Store</button>
-  <button class="tablinks"  onclick="openNav(event, 'inventory')">Inventory</button>
+<!--   <button class="tablinks" onclick="openNav(event, 'store')">Store</button>
+ -->  <button class="tablinks"  onclick="openNav(event, 'inventory')">Inventory</button>
 </div>
 
 
@@ -129,13 +125,13 @@
 	  document.getElementById(tabName).style.display = "block";
 	  document.getElementById(tabName).style.width = "300px";
 	  evt.currentTarget.className += " active";
-  	  document.getElementById("main").style.right = "235px";
+  	  document.getElementById("main").style.right = "272px";
 	}
 
 	function closeNav() {
   	  document.getElementById("inventory").style.width = "0";
 	  document.getElementById("store").style.width = "0";
-      document.getElementById("main").style.right = "-65px";
+      document.getElementById("main").style.right = "-27px";
 	}
 
 	function buyItem() {
@@ -177,8 +173,12 @@
 
 	  var loc = document.getElementById(randLocation);
 
-	  if (loc.childNodes.length === 0) {
-	  	loc.appendChild(img);
+	  if (loc.childNodes.length === 1) {
+	  	console.log(loc.childNodes[0]);
+	  	if (loc.childNodes[0].className != "visitor") {
+	  		console.log("true");
+	  		loc.appendChild(img);
+	  	}
 	  }
 	}
 
@@ -187,9 +187,9 @@
 
 	  var loc = document.getElementById(randLocation);
 
-	  if (loc.childNodes.length != 0) {
-	  	console.log(loc.firstChild);
-	  	loc.removeChild(loc.firstChild);
+	  if (loc.childNodes.length == 2) {
+	  	console.log(loc.childNodes[1]);
+	  	loc.removeChild(loc.childNodes[1]);
 	  }
 	}
 
