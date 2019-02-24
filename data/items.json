@@ -38,6 +38,30 @@
 		"cost"	:	25,
 		"description" :	"Moist",
 		"imgpath"	:	"assets/pot-plant1"
+	},
+
+	{
+		"key"	:	"pot2",
+		"name"	:	"Flower Pot",
+		"cost"	:	25,
+		"description" :	"Daffodils",
+		"imgpath"	:	"assets/pot-plant2"
+	},
+
+	{
+		"key"	:	"wheelbarrow",
+		"name"	:	"Wheelbarrow",
+		"cost"	:	25,
+		"description" :	"Wheely",
+		"imgpath"	:	"assets/flower-barrel.png"
+	},
+
+	{
+		"key"	:	"mushrooms",
+		"name"	:	"Mushroomss",
+		"cost"	:	25,
+		"description" :	"Amanita muscaria",
+		"imgpath"	:	"assets/mushrooms"
 	}
 ]
 }
