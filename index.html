@@ -21,7 +21,8 @@
 	function drop(ev) {
 	  ev.preventDefault();
 	  var data = ev.dataTransfer.getData("text");
-	  ev.target.appendChild(document.getElementById(data));
+	  ev.target.appendChild(document.getElementById(data).cloneNode(true));
+	  replace.id = "invitem";
 	  document.getElementById(data).setAttribute("draggable","true");
 	  document.getElementById(data).setAttribute("ondragstart","drag(event)");
 	  ev.target.style.backgroundImage = "none";
@@ -48,12 +49,12 @@
 
 <div id="store" class="tabcontent">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	
+
 	<a class="my-money">
 		<h5>My Money</h5>
 		<p><span id="currMoney"></span> <img src="assets/leaf.png"></p>
 	</a>
-	
+
 	<a href="#" class="item-card">
 	  <img src="assets/flower-barrel.png">
 	  <p>Flower Barrel</p>
@@ -86,7 +87,7 @@
 	  <p>Flower Barrel</p>
 	  <p class="quantity">x1</p>
   </a>
- 
+
  <a href="#" class="item-card">
 	  <img id="drag4" src="assets/pot-plant2.png" draggable="true" ondragstart="drag(event)">
 	  <p>Potted Plant (S)</p>
@@ -105,7 +106,7 @@
 	  <p class="quantity">x1</p>
   </a>
 
- 
+
 </div>
 
 <img class="visitor" id="butterfly" src="assets/frog.gif">
@@ -167,7 +168,7 @@
 	    var rand = Math.round(Math.random() * (3000 - 500)) + 500;
 	    setTimeout(function() {
 	            displayVisitor();
-	            loop();  
+	            loop();
 	    }, rand);
 	}());
 
@@ -176,7 +177,7 @@
 	    var rand = Math.round(Math.random() * (3000 - 500)) + 500;
 	    setTimeout(function() {
 	            deleteVisitor();
-	            loop();  
+	            loop();
 	    }, rand);
 	}());
 
