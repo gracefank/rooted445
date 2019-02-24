@@ -33,7 +33,7 @@ body {
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #ccc;
+  background-color: #DB8555;
 }
 
 .tabcontent {
@@ -57,10 +57,6 @@ body {
   color: #232323;
   display: block;
   transition: 0.3s;
-}
-
-.tabcontent a:hover {
-  color: #666;
 }
 
 .tabcontent .closebtn {
@@ -141,6 +137,7 @@ body {
 	position: absolute;
 	top: 500px;
 	left: 700px;
+  display: none;
 }
 
 .my-money {

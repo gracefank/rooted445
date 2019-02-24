@@ -56,26 +56,26 @@
 	
 	<a href="#" class="item-card">
 	  <img src="assets/flower-barrel.png">
-	  <p>Item 1</p>
-	  <button class="money" onclick="buyItem()">2 <img  src="assets/leaf.png"></button>
-	</a>
-
-	<a href="#" class="item-card">
-		<img src="assets/pot-plant1.png">
-	<p>Item 1</p>
-	<button class="money" onclick="buyItem()">6 <img  src="assets/leaf.png"></button>
-	</a>
-
-	<a href="#" class="item-card">
-	  <img src="assets/mushrooms.png">
-	  <p>Item 1</p>
-	  <button class="money" onclick="buyItem()">10 <img  src="assets/leaf.png"></button>
+	  <p>Flower Barrel</p>
+	  <button class="money" onclick="buyItem()">2 <img src="assets/leaf.png"></button>
 	</a>
 
 	<a href="#" class="item-card">
 	  <img src="assets/pot-plant2.png">
-	  <p>Item 1</p>
-	  <button class="money" onclick="buyItem()">4 <img  src="assets/leaf.png"></button>
+	  <p>Potted Plant (S)</p>
+	  <button class="money" onclick="buyItem()">4 <img src="assets/leaf.png"></button>
+	</a>
+
+	<a href="#" class="item-card">
+		<img src="assets/pot-plant1.png">
+		<p>Potted Plant (L)</p>
+		<button class="money" onclick="buyItem()">6 <img src="assets/leaf.png"></button>
+	</a>
+
+	<a href="#" class="item-card">
+	  <img src="assets/mushrooms.png">
+	  <p>Mushrooms</p>
+	  <button class="money" onclick="buyItem()">10 <img src="assets/leaf.png"></button>
 	</a>
 </div>
 
@@ -83,29 +83,32 @@
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
   <a href="#" class="item-card">
 	  <img id="drag1" src="assets/flower-barrel.png" draggable="true" ondragstart="drag(event)">
-	  <p>Item 1</p>
+	  <p>Flower Barrel</p>
+	  <p class="quantity">x1</p>
+  </a>
+ 
+ <a href="#" class="item-card">
+	  <img id="drag4" src="assets/pot-plant2.png" draggable="true" ondragstart="drag(event)">
+	  <p>Potted Plant (S)</p>
 	  <p class="quantity">x1</p>
   </a>
 
   <a href="#" class="item-card">
   	<img id="drag2" src="assets/pot-plant1.png" draggable="true" ondragstart="drag(event)">
-	<p>Item 1</p>
+	<p>Potted Plant (L)</p>
 	  <p class="quantity">x1</p>
   </a>
 
   <a href="#" class="item-card">
 	  <img id="drag3" src="assets/mushrooms.png" draggable="true" ondragstart="drag(event)">
-	  <p>Item 1</p>
+	  <p>Mushrooms</p>
 	  <p class="quantity">x1</p>
   </a>
 
-  <a href="#" class="item-card">
-	  <img id="drag4" src="assets/pot-plant2.png" draggable="true" ondragstart="drag(event)">
-	  <p>Item 1</p>
-	  <p class="quantity">x1</p>
-  </a>
+ 
 </div>
 
+<img class="visitor" id="butterfly" src="assets/frog.gif">
 
 <div id="main" class="tab">
   <button class="tablinks" onclick="openNav(event, 'store')">Store</button>
@@ -149,6 +152,33 @@
 		  	alert("Sorry, you do not have enough funds");
 		}
 	}
+
+	function displayVisitor() {
+		document.getElementById("butterfly").style.display = "block";
+		myScore += 10;
+		document.getElementById("currMoney").innerHTML = myScore;
+	}
+
+	function deleteVisitor() {
+		document.getElementById("butterfly").style.display = "none";
+	}
+
+	(function loop() {
+	    var rand = Math.round(Math.random() * (3000 - 500)) + 500;
+	    setTimeout(function() {
+	            displayVisitor();
+	            loop();  
+	    }, rand);
+	}());
+
+
+	(function loop() {
+	    var rand = Math.round(Math.random() * (3000 - 500)) + 500;
+	    setTimeout(function() {
+	            deleteVisitor();
+	            loop();  
+	    }, rand);
+	}());
 
 </script>
 
