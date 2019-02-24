@@ -137,9 +137,66 @@ body {
 	left: 700px;
 }
 
-.mountain_lion {
-  width: 250px;
-  position: absolute;
-  top: 400px;
-  left: 500px;
+.blocks {
+  position: absolute;  
+}
+
+#div1 {
+  top: 100px;
+  left:200px;
+}
+
+#div2 {
+  top: 100px;
+  left:520px;
+}
+
+#div3 {
+  top: 150px;
+  left:810px;
+}
+
+#div4 {
+  top: 180px;
+  left:1100px;
+}
+
+#div5 {
+  top: 270px;
+  left:150px;
+}
+
+#div6 {
+  top: 270px;
+  left:450px;
+}
+
+#div7 {
+  top: 330px;
+  left:770px;
+}
+
+#div8 {
+  top: 350px;
+  left:1100px;
+}
+
+#div9 {
+  top: 450px;
+  left:20px;
+}
+
+#div10 {
+  top: 450px;
+  left:300px;
+}
+
+#div11 {
+  top: 500px;
+  left:580px;
+}
+
+#div12 {
+  top: 520px;
+  left:950px;
 }
