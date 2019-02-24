@@ -1,109 +1,105 @@
 <!DOCTYPE html>
 <html>
-<header>
+<head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/inventory.js"></script>
     <script type="text/javascript" src="scripts/game.js"></script>
-		<script type="text/javascript" src="scripts/screenItem.js"></script>
-</header>
+    <title>Rooted</title>
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
 
-<body>
+    <script>
+	function allowDrop(ev) {
+	  ev.preventDefault();
+	}
+
+	function drag(ev) {
+	  ev.dataTransfer.setData("text", ev.target.id);
+	  ev.dataTransfer.effectAllowed = 'copy';
+	}
+
+	function drop(ev) {
+	  ev.preventDefault();
+	  var data = ev.dataTransfer.getData("text");
+	  ev.target.appendChild(document.getElementById(data).cloneNode(true));
+		document.getElementById(data).setAttribute("draggable","false");
+	  document.getElementById(data).setAttribute("ondragstart","drag(event)");
+	  ev.target.style.backgroundImage = "none";
+	}
+	</script>
+</head>
+
+<body onload="startGame()">
+	<script>
+		var myScore = 12;
+	</script>
 	<div class='wrap'>
-		<div class="blocks" id="0">
-			div 1
-		</div>
-
-		<div class="blocks" id="1">
-			div 2
-		</div>
-
-		<div class="blocks" id="2">
-			div 3
-		</div>
-
-		<div class="blocks" id="3">
-			div 4
-		</div>
-		<div class="blocks" id="4">
-			div 5
-		</div>
-		<div class="blocks" id="5">
-			div 6
-		</div>
-		<div class="blocks" id="6">
-			div 7
-		</div>
-		<div class="blocks" id="7">
-			div 8
-		</div>
-		<div class="blocks" id="8">
-			div 9
-		</div>
-		<div class="blocks" id="9">
-			div 10
-		</div>
-		<div class="blocks" id="10">
-			div 11
-		</div>
-		<div class="blocks" id="11">
-			div 12
-		</div>
+		<div class="blocks" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div class="blocks" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div class="blocks" id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div class="blocks" id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div class="blocks" id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div class="blocks" id="div7" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div class="blocks" id="div9" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div class="blocks" id="div10" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div class="blocks" id="div11" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<div class="blocks" id="div12" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 	</div>
 
-	<img class="visitor" src="assets/butterfly.gif">
-	<img class="mountain_lion" src="assets/mountain_lion.png">
 <div id="store" class="tabcontent">
 	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	<a class="my-money">
+		<h5>My Money</h5>
+		<p><span id="currMoney"></span> <img src="assets/leaf.png"></p>
+	</a>
 	<a href="#" class="item-card">
 	  <img src="assets/flower-barrel.png">
-	  <p>Item 1</p>
-	  <button class="money">2 <img  src="assets/leaf.png"></button>
+	  <p>Flower Barrel</p>
+	  <button class="money" onclick="buyItem()">2 <img src="assets/leaf.png"></button>
+	</a>
+
+	<a href="#" class="item-card">
+	  <img src="assets/pot-plant2.png">
+	  <p>Potted Plant (S)</p>
+	  <button class="money" onclick="buyItem()">4 <img src="assets/leaf.png"></button>
 	</a>
 
 	<a href="#" class="item-card">
 		<img src="assets/pot-plant1.png">
-	<p>Item 1</p>
-	<button class="money">2 <img  src="assets/leaf.png"></button>
+		<p>Potted Plant (L)</p>
+		<button class="money" onclick="buyItem()">6 <img src="assets/leaf.png"></button>
 	</a>
 
 	<a href="#" class="item-card">
 	  <img src="assets/mushrooms.png">
-	  <p>Item 1</p>
-	  <button class="money">2 <img  src="assets/leaf.png"></button>
-	</a>
-
-	<a href="#" class="item-card">
-	  <img src="assets/pot-plant2.png">
-	  <p>Item 1</p>
-	  <button class="money"><img  src="assets/leaf.png"></button>
+	  <p>Mushrooms</p>
+	  <button class="money" onclick="buyItem()">10 <img src="assets/leaf.png"></button>
 	</a>
 </div>
 
 <div id="inventory" class="tabcontent">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
   <a href="#" class="item-card">
-	  <img src="assets/flower-barrel.png">
-	  <p>Item 1</p>
+	  <img id="drag1" src="assets/flower-barrel.png" draggable="true" ondragstart="drag(event)">
+	  <p>Flower Barrel</p>
+	  <p class="quantity">x1</p>
+  </a>
+ <a href="#" class="item-card">
+	  <img id="drag4" src="assets/pot-plant2.png" draggable="true" ondragstart="drag(event)">
+	  <p>Potted Plant (S)</p>
 	  <p class="quantity">x1</p>
   </a>
 
   <a href="#" class="item-card">
-  	<img src="assets/pot-plant1.png">
-	<p>Item 1</p>
+  	<img id="drag2" src="assets/pot-plant1.png" draggable="true" ondragstart="drag(event)">
+	<p>Potted Plant (L)</p>
 	  <p class="quantity">x1</p>
   </a>
 
   <a href="#" class="item-card">
-	  <img src="assets/mushrooms.png">
-	  <p>Item 1</p>
-	  <p class="quantity">x1</p>
-  </a>
-
-  <a href="#" class="item-card">
-	  <img src="assets/pot-plant2.png">
-	  <p>Item 1</p>
+	  <img id="drag3" src="assets/mushrooms.png" draggable="true" ondragstart="drag(event)">
+	  <p>Mushrooms</p>
 	  <p class="quantity">x1</p>
   </a>
 </div>
@@ -116,6 +112,8 @@
 
 
 <script>
+	document.getElementById("currMoney").innerHTML = myScore;
+
 	setupInventory();
 
 	function openNav(evt, tabName) {
@@ -139,6 +137,70 @@
 	  document.getElementById("store").style.width = "0";
       document.getElementById("main").style.right = "-65px";
 	}
+
+	function buyItem() {
+		if (myScore >= 5) {
+			myScore = myScore - 5;
+			document.getElementById("currMoney").innerHTML = myScore;
+		}
+		else {
+		  	alert("Sorry, you do not have enough funds");
+		}
+	}
+
+	function displayVisitor() {
+		randVisitor();
+		myScore += 10;
+		document.getElementById("currMoney").innerHTML = myScore;
+	}
+
+	(function loop() {
+	    var rand = Math.round(Math.random() * (20000)) + 200;
+	    setTimeout(function() {
+	            displayVisitor();
+	            loop();
+	    }, rand);
+	}());
+
+	var visitors = Array("assets/butterfly.gif", "assets/frog.gif", "assets/bunny.gif");
+	var locations = Array("div1", "div2", "div3", "div5", "div6", "div7", "div9", "div10", "div11", "div12");
+	var currVisitors = [];
+
+	function randVisitor() {
+	  var randVisitor = visitors[Math.floor(Math.random() * visitors.length)];
+	  var randLocation = locations[Math.floor(Math.random() * locations.length)];
+	  console.log(randLocation);
+
+	  var img = document.createElement("img");
+	  img.src = randVisitor;
+	  img.className = "visitor";
+
+	  var loc = document.getElementById(randLocation);
+
+	  if (loc.childNodes.length === 0) {
+	  	loc.appendChild(img);
+	  }
+	}
+
+	function deleteVisitor() {
+	  var randLocation = locations[Math.floor(Math.random() * locations.length)];
+
+	  var loc = document.getElementById(randLocation);
+
+	  if (loc.childNodes.length != 0) {
+	  	console.log(loc.firstChild);
+	  	loc.removeChild(loc.firstChild);
+	  }
+	}
+
+	(function loop() {
+	    var rand = Math.round(Math.random() * (30000)) + 500;
+	    setTimeout(function() {
+	            deleteVisitor();
+	            loop();
+	    }, rand);
+	}());
+
 </script>
 
 </body>
