@@ -4,7 +4,7 @@ var money = 0;
 
 // item class to be stored in the inventory array
 class Item {
-	constructor(name, cost) {
+	constructor(name, cost, description) {
 		this.name = name;
 		this.cost = cost;
 
@@ -41,13 +41,15 @@ class Item {
 	}
 }
 
-
+// request and parse the JSON file containing the items
 function setupInventory() {
 	$.getJSON("data/items.json", function(data) {
 		for (x in data.items) {
 			newItem = new Item(data.items[x].name,
-							   data.items[x].cost);
-			console.log("Key :" + data.items[x].key);
+							   data.items[x].cost,
+							   data.items[x].description);
+			
+			console.log("Key: " + data.items[x].key);
 			inventory[data.items[x].key] = newItem;
 		}
 		whenDone();
@@ -55,5 +57,5 @@ function setupInventory() {
 }
 
 function whenDone() {
-	console.log(inventory.length);
+	//console.log(inventory.length);
 }
