@@ -80,9 +80,15 @@ body {
   margin-top: 4%;
   margin-left: 4%;
   display: inline-block; 
-  border: solid 1px red; 
   width: 250px; 
   height: 150px;
+  position: absolute; 
+  background-image: url("assets/down-arrow.png");
+  background-repeat: no-repeat;
+}
+
+.blocks img {
+  height: 100%;
 }
 
 .wrap{
@@ -111,7 +117,7 @@ body {
 	border-radius: 5px;
 	border: none;
 	background-color: #CD6528;
-	padding: 8px;
+	padding: 8px 16px;
 	font-size: 16px;
 	vertical-align: center;
 }
@@ -137,8 +143,29 @@ body {
 	left: 700px;
 }
 
-.blocks {
-  position: absolute;  
+.my-money {
+  background-color: #EEE9DD;
+  display: inline;
+  padding: 20px;
+  border-radius: 3px;
+  margin: 10px 20px;
+}
+
+.my-money h5 {
+  margin: 0;
+  padding-bottom: 10px;
+  text-align: center;
+}
+
+.my-money p {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.my-money img {
+  width: 30px;
+  vertical-align: middle;
 }
 
 #div1 {
@@ -162,12 +189,12 @@ body {
 }
 
 #div5 {
-  top: 270px;
-  left:150px;
+  top: 240px;
+  left:170px;
 }
 
 #div6 {
-  top: 270px;
+  top: 250px;
   left:450px;
 }
 
@@ -197,6 +224,6 @@ body {
 }
 
 #div12 {
-  top: 520px;
-  left:950px;
+  top: 490px;
+  left:970px;
 }
