@@ -1,28 +1,29 @@
 var lastFrameTimeMs = Date.now(); // The last time the loop was run
 var maxFPS = 1; // The maximum FPS we want to allow
-var timestamp = 0;
-var myScore = 12;
+var timestamp = 0; // The current global game time
+
+
+var myScore = 12; // User score / money count
 
 var counter = 0;
 
-var visitors = Array("assets/butterfly.gif", "assets/frog.gif", "assets/bunny.gif");
-var locations = Array("div1", "div2", "div3", "div5", "div6", "div7", "div9", "div10", "div11", "div12");
-var currVisitors = [];
+var visitors = Array("assets/butterfly.gif", "assets/frog.gif", "assets/bunny.gif"); // list of possible visitors
+var locations = Array("div1", "div2", "div3", "div5", "div6", "div7", "div9", "div10", "div11", "div12"); // list of locations
+var currVisitors = []; // list of active visitors
 
 
 // global variables to track player inventory and money
-var inventory = [];
-var money = 0;
+var inventory = []; // list of player owned items
+var money = 0; // this should be replaced with myScore
+
+
 function update() {
+    // this function is run each time the game updates
     console.log(Date.now());
 }
 
-function draw() {
-
-}
-
-
 function startGame() {
+    // everything in here gets run after the DOM is loaded
 
     document.getElementById("currMoney").innerHTML = myScore;
     setupInventory();
@@ -33,14 +34,14 @@ function startGame() {
 }
 
 function mainLoop() {
+    // this function drives the game to run at constant speed
+    // see update() to add actions to do each update
     timestamp = Date.now();
     if(timestamp < lastFrameTimeMs + (1000/maxFPS)){
         requestAnimationFrame(mainLoop);
         return;
     }
-
     update();
-    draw();
     lastFrameTimeMs = timestamp;
     requestAnimationFrame(mainLoop);
 }
