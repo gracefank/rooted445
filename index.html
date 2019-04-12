@@ -2,44 +2,14 @@
 <html>
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="style.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="scripts/inventory.js"></script>
-    <script type="text/javascript" src="scripts/game.js"></script>
-    <title>Rooted</title>
-    <link rel="shortcut icon" type="image/png" href="assets/favicon.png">
-
-    <script>
-
-    var counter = 0;
-
-	function allowDrop(ev) {
-	  ev.preventDefault();
-	}
-
-	function drag(ev) {
-	  ev.dataTransfer.setData("text", ev.target.id);
-	  ev.dataTransfer.effectAllowed = 'copy';
-	}
-
-	function drop(ev) {
-	  ev.preventDefault();
-	  var data = ev.dataTransfer.getData("text");
-	  var newitem = ev.target.appendChild(document.getElementById(data).cloneNode(true));
-	  document.getElementById(data).setAttribute("draggable","false");
-	  document.getElementById(data).setAttribute("ondragstart","drag(event)");
-	  document.getElementById(data).setAttribute("ondblclick","removeItem(this.id)");
-	  counter = counter+1;
-	  newitem.id=ev.currentTarget.id + counter;
-	  ev.target.style.backgroundImage = "none";
-	}
-	</script>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="shortcut icon" type="image/png" href="assets/favicon.png">
+	<title>Rooted</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/game.js"></script>
 </head>
 
 <body onload="startGame()">
-	<script>
-		var myScore = 12;
-	</script>
 	<div class='wrap'>
 		<div class="blocks" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 		<div class="blocks" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -53,171 +23,63 @@
 		<div class="blocks" id="div12" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 	</div>
 
-<div id="store" class="tabcontent">
-	<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-	<a class="my-money">
-		<h5>My Money</h5>
-		<p><span id="currMoney"></span> <img src="assets/leaf.png"></p>
-	</a>
-	<a href="#" class="item-card">
-	  <img src="assets/flower-barrel.png">
-	  <p>Flower Barrel</p>
-	  <button class="money" onclick="buyItem()">2 <img src="assets/leaf.png"></button>
-	</a>
+	<div id="store" class="tabcontent">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a class="my-money">
+			<h5>My Money</h5>
+			<p><span id="currMoney"></span> <img src="assets/leaf.png"></p>
+		</a>
+		<a href="#" class="item-card">
+			<img src="assets/flower-barrel.png">
+			<p>Flower Barrel</p>
+			<button class="money" onclick="buyItem()">2 <img src="assets/leaf.png"></button>
+		</a>
 
-	<a href="#" class="item-card">
-	  <img src="assets/pot-plant2.png">
-	  <p>Potted Plant (S)</p>
-	  <button class="money" onclick="buyItem()">4 <img src="assets/leaf.png"></button>
-	</a>
+		<a href="#" class="item-card">
+			<img src="assets/pot-plant2.png">
+			<p>Potted Plant (S)</p>
+			<button class="money" onclick="buyItem()">4 <img src="assets/leaf.png"></button>
+		</a>
 
-	<a href="#" class="item-card">
-		<img src="assets/pot-plant1.png">
-		<p>Potted Plant (L)</p>
-		<button class="money" onclick="buyItem()">6 <img src="assets/leaf.png"></button>
-	</a>
+		<a href="#" class="item-card">
+			<img src="assets/pot-plant1.png">
+			<p>Potted Plant (L)</p>
+			<button class="money" onclick="buyItem()">6 <img src="assets/leaf.png"></button>
+		</a>
 
-	<a href="#" class="item-card">
-	  <img src="assets/mushrooms.png">
-	  <p>Mushrooms</p>
-	  <button class="money" onclick="buyItem()">10 <img src="assets/leaf.png"></button>
-	</a>
-</div>
+		<a href="#" class="item-card">
+			<img src="assets/mushrooms.png">
+			<p>Mushrooms</p>
+			<button class="money" onclick="buyItem()">10 <img src="assets/leaf.png"></button>
+		</a>
+	</div>
 
-<div id="inventory" class="tabcontent">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
-  <a href="#" class="item-card">
-	  <img id="drag1" src="assets/flower-barrel.png" draggable="true" ondragstart="drag(event)">
-	  <p>Flower Barrel</p>
-  </a>
- <a href="#" class="item-card">
-	  <img id="drag4" src="assets/pot-plant2.png" draggable="true" ondragstart="drag(event)">
-	  <p>Potted Plant (S)</p>
-  </a>
+	<div id="inventory" class="tabcontent">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()" >&times;</a>
+		<a href="#" class="item-card">
+			<img id="drag1" src="assets/flower-barrel.png" draggable="true" ondragstart="drag(event)">
+			<p>Flower Barrel</p>
+		</a>
+		<a href="#" class="item-card">
+			<img id="drag4" src="assets/pot-plant2.png" draggable="true" ondragstart="drag(event)">
+			<p>Potted Plant (S)</p>
+		</a>
 
-  <a href="#" class="item-card">
-  	<img id="drag2" src="assets/pot-plant1.png" draggable="true" ondragstart="drag(event)">
-	<p>Potted Plant (L)</p>
-  </a>
+		<a href="#" class="item-card">
+			<img id="drag2" src="assets/pot-plant1.png" draggable="true" ondragstart="drag(event)">
+			<p>Potted Plant (L)</p>
+		</a>
 
-  <a href="#" class="item-card">
-	  <img id="drag3" src="assets/mushrooms.png" draggable="true" ondragstart="drag(event)">
-	  <p>Mushrooms</p>
-  </a>
-</div>
+		<a href="#" class="item-card">
+			<img id="drag3" src="assets/mushrooms.png" draggable="true" ondragstart="drag(event)">
+			<p>Mushrooms</p>
+		</a>
+	</div>
 
-
-<div id="main" class="tab">
-<!--   <button class="tablinks" onclick="openNav(event, 'store')">Store</button>
- -->  <button class="tablinks"  onclick="openNav(event, 'inventory')">Inventory</button>
-</div>
-
-
-<script>
-	document.getElementById("currMoney").innerHTML = myScore;
-
-	setupInventory();
-
-	function openNav(evt, tabName) {
-	  var i, tabcontent, tablinks;
-	  tabcontent = document.getElementsByClassName("tabcontent");
-	  for (i = 0; i < tabcontent.length; i++) {
-	    tabcontent[i].style.display = "none";
-	  }
-	  tablinks = document.getElementsByClassName("tablinks");
-	  for (i = 0; i < tablinks.length; i++) {
-	    tablinks[i].className = tablinks[i].className.replace(" active", "");
-	  }
-	  document.getElementById(tabName).style.display = "block";
-	  document.getElementById(tabName).style.width = "300px";
-	  evt.currentTarget.className += " active";
-  	  document.getElementById("main").style.right = "272px";
-	}
-
-	function closeNav() {
-  	  document.getElementById("inventory").style.width = "0";
-	  document.getElementById("store").style.width = "0";
-      document.getElementById("main").style.right = "-27px";
-	}
-
-	function buyItem() {
-		if (myScore >= 5) {
-			myScore = myScore - 5;
-			document.getElementById("currMoney").innerHTML = myScore;
-		}
-		else {
-		  	alert("Sorry, you do not have enough funds");
-		}
-	}
-
-	function displayVisitor() {
-		randVisitor();
-		myScore += 10;
-		document.getElementById("currMoney").innerHTML = myScore;
-	}
-
-	(function loop() {
-	    var rand = Math.round(Math.random() * (20000)) + 200;
-	    setTimeout(function() {
-	            displayVisitor();
-	            loop();
-	    }, rand);
-	}());
-
-	var visitors = Array("assets/butterfly.gif", "assets/frog.gif", "assets/bunny.gif");
-	var locations = Array("div1", "div2", "div3", "div5", "div6", "div7", "div9", "div10", "div11", "div12");
-	var currVisitors = [];
-
-	function randVisitor() {
-	  var randVisitor = visitors[Math.floor(Math.random() * visitors.length)];
-	  var randLocation = locations[Math.floor(Math.random() * locations.length)];
-	  console.log(randLocation);
-
-	  var img = document.createElement("img");
-	  img.src = randVisitor;
-	  img.className = "visitor";
-
-	  var loc = document.getElementById(randLocation);
-
-	  if (loc.childNodes.length === 1) {
-	  	console.log(loc.childNodes[0]);
-	  	if (loc.childNodes[0].className != "visitor") {
-	  		console.log("true");
-	  		loc.appendChild(img);
-	  	}
-	  }
-	}
-
-	function deleteVisitor() {
-	  var randLocation = locations[Math.floor(Math.random() * locations.length)];
-
-	  var loc = document.getElementById(randLocation);
-
-	  if (loc.childNodes.length == 2) {
-	  	console.log(loc.childNodes[1]);
-	  	loc.removeChild(loc.childNodes[1]);
-	  }
-	}
-
-	(function loop() {
-	    var rand = Math.round(Math.random() * (30000)) + 500;
-	    setTimeout(function() {
-	            deleteVisitor();
-	            loop();
-	    }, rand);
-	}());
-
-	function removeItem(itemID){
-		console.log(itemID);
-		var parent = document.getElementById(itemID).parentNode; 
-		parent.style.backgroundImage = "url('assets/down-arrow.png')";
-		while (parent.firstChild) {
-			parent.removeChild(parent.firstChild);
-		}
-	}
-
-</script>
+	<div id="main" class="tab">
+		<!-- <button class="tablinks" onclick="openNav(event, 'store')">Store</button> -->
+		<button class="tablinks"  onclick="openNav(event, 'inventory')">Inventory</button>
+	</div>
 
 </body>
-
 </html>
