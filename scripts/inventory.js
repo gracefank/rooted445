@@ -4,9 +4,10 @@ var money = 0;
 
 // item class to be stored in the inventory array
 class Item {
-	constructor(name, cost, description) {
+	constructor(name, cost, description, imgpath) {
 		this.name = name;
 		this.cost = cost;
+		this.imgpath = imgpath;
 
 		// player starts with 0 of an item in inventory
 		this.amountStored = 0;
@@ -48,7 +49,7 @@ function setupInventory() {
 			newItem = new Item(data.items[x].name,
 							   data.items[x].cost,
 							   data.items[x].description,
-						   		data.items[x].imgpath);
+							   data.items[x].imgpath);
 
 			console.log("Key: " + data.items[x].key);
 			inventory[data.items[x].key] = newItem;
@@ -58,5 +59,5 @@ function setupInventory() {
 }
 
 function whenDone() {
-	//console.log(inventory.length);
+	console.log("Inventory created");
 }
