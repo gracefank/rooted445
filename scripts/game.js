@@ -1,14 +1,36 @@
 var lastFrameTimeMs = Date.now(); // The last time the loop was run
 var maxFPS = 1; // The maximum FPS we want to allow
 var timestamp = 0;
+var myScore = 12;
 
+var counter = 0;
+
+var visitors = Array("assets/butterfly.gif", "assets/frog.gif", "assets/bunny.gif");
+var locations = Array("div1", "div2", "div3", "div5", "div6", "div7", "div9", "div10", "div11", "div12");
+var currVisitors = [];
+
+
+// global variables to track player inventory and money
+var inventory = [];
+var money = 0;
 function update() {
     console.log(Date.now());
 }
 
 function draw() {
+
 }
 
+
+function startGame() {
+
+    document.getElementById("currMoney").innerHTML = myScore;
+    setupInventory();
+
+
+    // Start things off
+    requestAnimationFrame(mainLoop);
+}
 
 function mainLoop() {
     timestamp = Date.now();
@@ -23,5 +45,189 @@ function mainLoop() {
     requestAnimationFrame(mainLoop);
 }
 
-// Start things off
-requestAnimationFrame(mainLoop);
+
+
+
+
+// item class to be stored in the inventory array
+class Item {
+	constructor(name, cost, description, imgpath) {
+		this.name = name;
+		this.cost = cost;
+		this.imgpath = imgpath;
+
+		// player starts with 0 of an item in inventory
+		this.amountStored = 0;
+
+		// player starts with 0 of an item placed in the world
+		this.amountPlaced = 0;
+	}
+
+	// for placing an item in the world
+	place() {
+		console.log("Placing item " + this.name);
+		if (this.amountStored >= 0) {
+			amountStored--;
+			amountPlaced++;
+		}
+	}
+
+	// for storing an item
+	store() {
+		console.log("Storing item " + this.name);
+		if (this.amountPlaced >= 0) {
+			amountStored++;
+			amountPlaced--;
+		}	}
+
+	// player buys an item
+	buy() {
+		if (money >= this.cost) {
+			money -= this.cost;
+			this.amountStored++;
+		}
+	}
+}
+
+// request and parse the JSON file containing the items
+function setupInventory() {
+	$.getJSON("data/items.json", function(data) {
+		for (x in data.items) {
+			newItem = new Item(data.items[x].name,
+							   data.items[x].cost,
+							   data.items[x].description,
+							   data.items[x].imgpath);
+
+			console.log("Key: " + data.items[x].key);
+			inventory[data.items[x].key] = newItem;
+		}
+		whenDone();
+	});
+}
+
+function whenDone() {
+	console.log("Inventory created");
+}
+
+
+
+
+
+function openNav(evt, tabName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName).style.width = "300px";
+    evt.currentTarget.className += " active";
+    document.getElementById("main").style.right = "272px";
+}
+
+function closeNav() {
+    document.getElementById("inventory").style.width = "0";
+    document.getElementById("store").style.width = "0";
+    document.getElementById("main").style.right = "-27px";
+}
+
+function buyItem() {
+    if (myScore >= 5) {
+        myScore = myScore - 5;
+        document.getElementById("currMoney").innerHTML = myScore;
+    }
+    else {
+        alert("Sorry, you do not have enough funds");
+    }
+}
+
+function displayVisitor() {
+    randVisitor();
+    myScore += 10;
+    document.getElementById("currMoney").innerHTML = myScore;
+}
+
+(function loop() {
+    var rand = Math.round(Math.random() * (20000)) + 200;
+    setTimeout(function() {
+        displayVisitor();
+        loop();
+    }, rand);
+}());
+
+
+
+function randVisitor() {
+    var randVisitor = visitors[Math.floor(Math.random() * visitors.length)];
+    var randLocation = locations[Math.floor(Math.random() * locations.length)];
+    console.log(randLocation);
+
+    var img = document.createElement("img");
+    img.src = randVisitor;
+    img.className = "visitor";
+
+    var loc = document.getElementById(randLocation);
+
+    if (loc.childNodes.length === 1) {
+        console.log(loc.childNodes[0]);
+        if (loc.childNodes[0].className != "visitor") {
+            console.log("true");
+            loc.appendChild(img);
+        }
+    }
+}
+
+function deleteVisitor() {
+    var randLocation = locations[Math.floor(Math.random() * locations.length)];
+
+    var loc = document.getElementById(randLocation);
+
+    if (loc.childNodes.length == 2) {
+        console.log(loc.childNodes[1]);
+        loc.removeChild(loc.childNodes[1]);
+    }
+}
+
+(function loop() {
+    var rand = Math.round(Math.random() * (30000)) + 500;
+    setTimeout(function() {
+        deleteVisitor();
+        loop();
+    }, rand);
+}());
+
+function removeItem(itemID){
+    console.log(itemID);
+    var parent = document.getElementById(itemID).parentNode;
+    parent.style.backgroundImage = "url('assets/down-arrow.png')";
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+    ev.dataTransfer.effectAllowed = 'copy';
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    var newitem = ev.target.appendChild(document.getElementById(data).cloneNode(true));
+    document.getElementById(data).setAttribute("draggable","false");
+    document.getElementById(data).setAttribute("ondragstart","drag(event)");
+    document.getElementById(data).setAttribute("ondblclick","removeItem(this.id)");
+    counter = counter+1;
+    newitem.id=ev.currentTarget.id + counter;
+    ev.target.style.backgroundImage = "none";
+}
