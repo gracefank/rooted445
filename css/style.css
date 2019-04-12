@@ -1,5 +1,5 @@
 body {
-	background-image: url("assets/bg.jpg");
+	background-image: url("../assets/bg.jpg");
 	background-size: cover;
 	background-repeat: no-repeat; /* Do not repeat the image */
 	font-family: sans-serif;
@@ -79,7 +79,7 @@ body {
   width: 250px;
   height: 150px;
   position: absolute;
-  background-image: url("assets/down-arrow.png");
+  background-image: url("../assets/down-arrow.png");
   background-repeat: no-repeat;
 }
 
