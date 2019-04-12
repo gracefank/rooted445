@@ -25,6 +25,8 @@ function update() {
 function startGame() {
     // everything in here gets run after the DOM is loaded
 
+    // if we split up the .js scripts, use loadScript() here to force load order
+
     document.getElementById("currMoney").innerHTML = myScore;
     setupInventory();
 
