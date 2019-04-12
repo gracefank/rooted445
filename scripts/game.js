@@ -152,13 +152,6 @@ function displayVisitor() {
     document.getElementById("currMoney").innerHTML = myScore;
 }
 
-(function loop() {
-    var rand = Math.round(Math.random() * (20000)) + 200;
-    setTimeout(function() {
-        displayVisitor();
-        loop();
-    }, rand);
-}());
 
 
 
@@ -193,13 +186,7 @@ function deleteVisitor() {
     }
 }
 
-(function loop() {
-    var rand = Math.round(Math.random() * (30000)) + 500;
-    setTimeout(function() {
-        deleteVisitor();
-        loop();
-    }, rand);
-}());
+
 
 function removeItem(itemID){
     console.log(itemID);
