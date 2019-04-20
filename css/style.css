@@ -1,16 +1,16 @@
 body {
 	background-image: url("../assets/bg.jpg");
-	background-size: cover;
+  background-size: cover;
 	background-repeat: no-repeat; /* Do not repeat the image */
 	font-family: sans-serif;
+  height: 765px;
 }
 
 .tab {
   overflow: hidden;
   position: absolute;
-  top: 120px;
-  right: -28px;
-  transform: rotate(-90deg);
+  top: 8px;
+  right: 8px;
 }
 
 /* Style the buttons inside the tab */
@@ -24,6 +24,8 @@ body {
   transition: 0.3s;
   font-size: 17px;
   border-radius: 3px;
+  color: white;
+  margin-right: 5px;
 }
 
 /* Change background color of buttons on hover */
@@ -36,18 +38,22 @@ body {
   background-color: #DB8555;
 }
 
+.tablinks {
+  padding-top: 27px !important;
+  padding-bottom: 27px !important;
+}
+
 .tabcontent {
-  height: 90%;
+  height: 80%;
   width: 0;
   position: fixed;
   z-index: 1;
-  top: 0;
   right: 0;
   background-color: #CD6528;
   overflow-x: hidden;
   transition: 0.5s;
   padding: 60px 0;
-  margin-bottom: 30px;
+  border-radius: 3px;
 }
 
 .tabcontent a {
@@ -65,6 +71,10 @@ body {
   right: 25px;
   font-size: 36px;
   margin-left: 50px;
+}
+
+.closebtn {
+  top: 50px;
 }
 
 @media screen and (max-height: 450px) {
@@ -116,6 +126,7 @@ body {
 	padding: 8px 16px;
 	font-size: 16px;
 	vertical-align: center;
+  color: white;
 }
 
 .money:hover {
@@ -141,32 +152,28 @@ body {
 }
 
 .my-money {
-  background-color: #EEE9DD;
-  display: inline;
   padding: 20px;
   border-radius: 3px;
-  margin: 10px 20px;
 }
 
-.my-money h5 {
-  margin: 0;
-  padding-bottom: 10px;
-  text-align: center;
-}
+.my-money:hover { 
+  background-color: #CD6528 !important;
+  cursor: initial;
+ }
 
 .my-money p {
-  margin: 0;
+  margin: 5px 0 0;
   padding: 0;
   text-align: center;
 }
 
 .my-money img {
-  width: 30px;
+  width: 20px;
   vertical-align: middle;
 }
 
 #div1 {
-  top: 100px;
+  top: 110px;
   left:200px;
 }
 
@@ -223,4 +230,64 @@ body {
 #div12 {
   top: 490px;
   left:970px;
+}
+
+#clockdiv{
+  color: #fff;
+  display: inline-block;
+  font-weight: 100;
+  text-align: center;
+  font-size: 40px;
+  z-index: 3;
+  position: absolute;
+  top:8px;
+}
+
+#clockdiv > div{
+  padding: 10px;
+  border-radius: 3px;
+  background: #CD6528;
+  display: inline-block;
+}
+
+#clockdiv div > span{
+  padding: 15px;
+  border-radius: 3px;
+  background: #DB8555;
+  display: inline-block;
+}
+
+.smalltext{
+  padding-top: 5px;
+  font-size: 16px;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 766px) {
+  #clockdiv {
+    font-size: 20px;
+  }
+  .tab {
+    display: block;
+    margin: auto;
+  }
+  #clockdiv > div > span{
+    padding: 5px 20px;
+  }
+  .sec {
+    display: none !important;
+  }
 }

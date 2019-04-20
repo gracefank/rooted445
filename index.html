@@ -10,6 +10,10 @@
 </head>
 
 <body onload="startGame()">
+	<div id="overlay">
+		<div id="clockdiv"></div>
+	</div>
+
 	<div class='wrap'>
 		<div class="blocks" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
 		<div class="blocks" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
@@ -25,10 +29,6 @@
 
 	<div id="store" class="tabcontent">
 		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-		<a class="my-money">
-			<h5>My Money</h5>
-			<p><span id="currMoney"></span> <img src="assets/leaf.png"></p>
-		</a>
 		<a href="#" class="item-card">
 			<img src="assets/flower-barrel.png">
 			<p>Flower Barrel</p>
@@ -77,9 +77,96 @@
 	</div>
 
 	<div id="main" class="tab">
-		<!-- <button class="tablinks" onclick="openNav(event, 'store')">Store</button> -->
+		<button class="my-money">
+			My Money
+			<p><span id="currMoney"></span> <img src="assets/leaf.png"></p>
+		</button>
 		<button class="tablinks"  onclick="openNav(event, 'inventory')">Inventory</button>
+		<button class="tablinks" onclick="openNav(event, 'store')">Store</button>
+	</div>
+</body>
+
+<div id="clockdiv">
+	  <div>
+	    <span id="minutes"></span>
+	    <div class="smalltext">Minutes</div>
+	  </div>
+	  <div class="sec">
+	    <span id="seconds"></span>
+	    <div class="smalltext">Seconds</div>
+	  </div>
 	</div>
 
-</body>
+<script>
+	// 10 minutes from now
+	var pomodoro = true;
+	var time_in_minutes = 5;
+	var current_time = Date.parse(new Date());
+	var deadline = new Date(current_time + time_in_minutes*60*1000);
+
+	function time_remaining(endtime){
+		var t = Date.parse(endtime) - Date.parse(new Date());
+		var seconds = Math.floor( (t/1000) % 60 );
+		var minutes = Math.floor( (t/1000/60) % 60 );
+		var hours = Math.floor( (t/(1000*60*60)) % 24 );
+		var days = Math.floor( t/(1000*60*60*24) );
+		return {'total':t, 'days':days, 'hours':hours, 'minutes':minutes, 'seconds':seconds};
+	}
+	function run_clock(endtime){
+		var min_clock = document.getElementById("minutes");
+		var sec_clock = document.getElementById("seconds");
+		function update_clock(){
+			var t = time_remaining(endtime);
+
+			min_clock.innerHTML = t.minutes;
+			if (t.seconds < 10) { sec_clock.innerHTML = "0" + t.seconds ; }
+			else {
+				sec_clock.innerHTML = t.seconds;	
+			}
+			if(t.total<=0){ 
+				clearInterval(timeinterval);
+				pomodoro = !pomodoro;
+				if (!pomodoro) {
+					time_in_minutes = 25;
+					on();
+				}
+				else {
+					time_in_minutes = 5;
+					off();
+				}
+				current_time = Date.parse(new Date());
+				deadline = new Date(current_time + time_in_minutes*60*1000);
+				run_clock(deadline); 
+			}
+		}
+		update_clock(); // run function once at first to avoid delay
+		var timeinterval = setInterval(update_clock,1000);
+	}
+	run_clock(deadline);
+
+	function on() {
+	  document.getElementById("overlay").style.display = "block";
+	}
+
+	function off() {
+	  document.getElementById("overlay").style.display = "none";
+	}
+
+	var lastFrameTimeMs = Date.now(); // The last time the loop was run
+	var maxFPS = 1; // The maximum FPS we want to allow
+	var timestamp = 0; // The current global game time
+
+	var myScore = 12; // User score / money count
+
+	var counter = 0;
+
+	var visitors = Array("assets/butterfly.gif", "assets/frog.gif", "assets/bunny.gif"); // list of possible visitors
+	var locations = Array("div1", "div2", "div3", "div5", "div6", "div7", "div9", "div10", "div11", "div12"); // list of locations
+	var currVisitors = []; // list of active visitors
+
+
+// global variables to track player inventory and money
+var inventory = []; // list of player owned items
+var money = 0; // this should be replaced with myScore
+</script>
 </html>

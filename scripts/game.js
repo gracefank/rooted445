@@ -1,22 +1,3 @@
-var lastFrameTimeMs = Date.now(); // The last time the loop was run
-var maxFPS = 1; // The maximum FPS we want to allow
-var timestamp = 0; // The current global game time
-
-
-var myScore = 12; // User score / money count
-
-var counter = 0;
-
-var visitors = Array("assets/butterfly.gif", "assets/frog.gif", "assets/bunny.gif"); // list of possible visitors
-var locations = Array("div1", "div2", "div3", "div5", "div6", "div7", "div9", "div10", "div11", "div12"); // list of locations
-var currVisitors = []; // list of active visitors
-
-
-// global variables to track player inventory and money
-var inventory = []; // list of player owned items
-var money = 0; // this should be replaced with myScore
-
-
 function update() {
     // this function is run each time the game updates
     console.log(Date.now());
@@ -47,8 +28,6 @@ function mainLoop() {
     lastFrameTimeMs = timestamp;
     requestAnimationFrame(mainLoop);
 }
-
-
 
 
 
@@ -113,29 +92,36 @@ function whenDone() {
 }
 
 
-
-
-
 function openNav(evt, tabName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(tabName).style.display = "block";
-    document.getElementById(tabName).style.width = "300px";
-    evt.currentTarget.className += " active";
-    document.getElementById("main").style.right = "272px";
+    var x = window.matchMedia("(max-width: 776px)")
+     if (x.matches) { // If media query matches
+        document.getElementById(tabName).style.width = "100%";
+        document.getElementById(tabName).style.top = "490px";  
+        document.getElementById(tabName).style.height = "20vh";        
+        document.getElementById(tabName).style.display = "block";
+        console.log("open-mobile");      
+      } else {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(tabName).style.height = "80%";        
+        document.getElementById(tabName).style.top = "90px";  
+        document.getElementById(tabName).style.display = "block";
+        document.getElementById(tabName).style.width = "310px";
+        evt.currentTarget.className += " active";
+      }
 }
 
 function closeNav() {
     document.getElementById("inventory").style.width = "0";
     document.getElementById("store").style.width = "0";
-    document.getElementById("main").style.right = "-27px";
+    document.getElementById("main").style.right = "8px";
 }
 
 function buyItem() {
@@ -153,8 +139,6 @@ function displayVisitor() {
     myScore += 10;
     document.getElementById("currMoney").innerHTML = myScore;
 }
-
-
 
 
 function randVisitor() {
