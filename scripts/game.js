@@ -1,6 +1,9 @@
 function update() {
     // this function is run each time the game updates
     console.log(Date.now());
+
+    //try to spawn visitors
+    randVisitor();
 }
 
 function startGame() {
@@ -96,10 +99,10 @@ function openNav(evt, tabName) {
     var x = window.matchMedia("(max-width: 776px)")
      if (x.matches) { // If media query matches
         document.getElementById(tabName).style.width = "100%";
-        document.getElementById(tabName).style.top = "490px";  
-        document.getElementById(tabName).style.height = "20vh";        
+        document.getElementById(tabName).style.top = "490px";
+        document.getElementById(tabName).style.height = "20vh";
         document.getElementById(tabName).style.display = "block";
-        console.log("open-mobile");      
+        console.log("open-mobile");
       } else {
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
@@ -110,8 +113,8 @@ function openNav(evt, tabName) {
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].className = tablinks[i].className.replace(" active", "");
         }
-        document.getElementById(tabName).style.height = "80%";        
-        document.getElementById(tabName).style.top = "90px";  
+        document.getElementById(tabName).style.height = "80%";
+        document.getElementById(tabName).style.top = "90px";
         document.getElementById(tabName).style.display = "block";
         document.getElementById(tabName).style.width = "310px";
         evt.currentTarget.className += " active";
