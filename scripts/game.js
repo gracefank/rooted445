@@ -4,6 +4,9 @@ function update() {
 
     //try to spawn visitors
     randVisitor();
+
+    //try to remove visitors
+    deleteVisitor();
 }
 
 function startGame() {
