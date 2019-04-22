@@ -3,7 +3,7 @@
 	{
 		"key"	:	"sag",
 		"name"	:	"Saguaro",
-		"cost"	:	1000,
+		"cost"	:	100,
 		"description"	:	"The saguaro is a giant cactus native to the American Southwest!",
 		"imgpath"	:	"assets/sag.png"
 	},
@@ -11,7 +11,7 @@
 	{
 		"key"	:	"catnip",
 		"name"	:	"Catnip",
-		"cost"	:	250,
+		"cost"	:	25,
 		"description"	:	"Catnip is a tasty treat for our furry feline friends!",
 		"imgpath"	:	"assets/catnip.png"
 	},
@@ -19,7 +19,7 @@
 	{
 		"key"	:	"cactus",
 		"name"	:	"Cactus",
-		"cost"	:	150,
+		"cost"	:	15,
 		"description"	:	"spiky bois",
 		"imgpath"	:	"assets/cactus.png"
 	},
@@ -27,7 +27,7 @@
 	{
 		"key"	:	"dandelion",
 		"name"	:	"Dandelion",
-		"cost"	:	25,
+		"cost"	:	5,
 		"description" :	"weed bois",
 		"imgpath"	:	"assets/dandelion.png"
 	},
@@ -35,7 +35,7 @@
 	{
 		"key"	:	"pot1",
 		"name"	:	"Water Pot",
-		"cost"	:	25,
+		"cost"	:	6,
 		"description" :	"Moist",
 		"imgpath"	:	"assets/pot-plant1"
 	},
@@ -43,7 +43,7 @@
 	{
 		"key"	:	"pot2",
 		"name"	:	"Flower Pot",
-		"cost"	:	25,
+		"cost"	:	4,
 		"description" :	"Daffodils",
 		"imgpath"	:	"assets/pot-plant2"
 	},
@@ -51,7 +51,7 @@
 	{
 		"key"	:	"mushrooms",
 		"name"	:	"Mushroomss",
-		"cost"	:	25,
+		"cost"	:	10,
 		"description" :	"Amanita muscaria",
 		"imgpath"	:	"assets/mushrooms"
 	},
@@ -59,7 +59,7 @@
 	{
 		"key"	:	"wheelbarrow",
 		"name"	:	"Wheelbarrow",
-		"cost"	:	25,
+		"cost"	:	2,
 		"description" :	"Wheely",
 		"imgpath"	:	"assets/flower-barrel.png"
 	}
