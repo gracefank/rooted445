@@ -1,12 +1,19 @@
+var lastFrameTimeMs = Date.now(); // The last time the loop was run
+var maxFPS = 1; // The maximum FPS we want to allow
+var timestamp = 0; // The current global game time
+var totalUpdates = 0;
+
 function update() {
     // this function is run each time the game updates
+    totalUpdates++;
     console.log(Date.now());
 
-    //try to spawn visitors
-    randVisitor();
-
-    //try to remove visitors
-    deleteVisitor();
+    if(totalUpdates % 5 == 0){
+        //try to spawn visitors
+        randVisitor();
+        //try to remove visitors
+        deleteVisitor();
+    }
 }
 
 function startGame() {
