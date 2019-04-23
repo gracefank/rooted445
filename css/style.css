@@ -38,11 +38,6 @@ body {
   background-color: #DB8555;
 }
 
-.tablinks {
-  padding-top: 27px !important;
-  padding-bottom: 27px !important;
-}
-
 .tabcontent {
   height: 80%;
   width: 0;
@@ -101,6 +96,10 @@ body {
     width:1050px;
 }
 
+.tablinks img {
+  width: 20px;
+  vertical-align: middle;
+}
 
 .item-card {
 	background-color: #EEE9DD;
@@ -289,5 +288,8 @@ body {
   }
   .sec {
     display: none !important;
+  }
+  .tablinks img {
+  	display: none;
   }
 }

@@ -153,13 +153,6 @@ function buyItem(val) {
     }
 }
 
-function displayVisitor() {
-    randVisitor();
-    myScore += 10;
-    document.getElementById("currMoney").innerHTML = myScore;
-}
-
-
 function randVisitor() {
     var randVisitor = visitors[Math.floor(Math.random() * visitors.length)];
     var randLocation = locations[Math.floor(Math.random() * locations.length)];
@@ -176,6 +169,8 @@ function randVisitor() {
         if (loc.childNodes[0].className != "visitor") {
             //  console.log("true");
             loc.appendChild(img);
+            myScore += 10;
+            document.getElementById("currMoney").innerHTML = myScore;
         }
     }
 }
