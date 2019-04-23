@@ -52,6 +52,18 @@
 			<p>Mushrooms</p>
 			<button class="money" onclick="buyItem('mushrooms')">10 <img src="assets/leaf.png"></button>
 		</a>
+
+		<a href="#" class="item-card">
+			<img src="assets/dandelion.png">
+			<p>Dandelion</p>
+			<button class="money" onclick="buyItem('dandelion')">10 <img src="assets/leaf.png"></button>
+		</a>
+
+		<a href="#" class="item-card">
+			<img src="assets/tomato-plant.png">
+			<p>Tomato Plant</p>
+			<button class="money" onclick="buyItem('tomato')">24 <img src="assets/leaf.png"></button>
+		</a>
 	</div>
 
 	<div id="inventory" class="tabcontent">
@@ -73,6 +85,16 @@
 		<a href="#" class="item-card">
 			<img id="drag3" src="assets/mushrooms.png" draggable="true" ondragstart="drag(event)">
 			<p>Mushrooms</p>
+		</a>
+
+		<a href="#" class="item-card">
+			<img id="drag6" src="assets/dandelion.png" draggable="true" ondragstart="drag(event)">
+			<p>Dandelion</p>
+		</a>
+
+		<a href="#" class="item-card">
+			<img id="drag5" src="assets/tomato-plant.png" draggable="true" ondragstart="drag(event)">
+			<p>Tomato Plant</p>
 		</a>
 	</div>
 
@@ -157,7 +179,7 @@
 
 	var counter = 0;
 
-	var visitors = Array("assets/butterfly.gif", "assets/frog.gif", "assets/bunny.gif"); // list of possible visitors
+	var visitors = Array("assets/butterfly.gif", "assets/frog.gif", "assets/bunny.gif", "assets/duck.gif","assets/raccoon.gif"); // list of possible visitors
 	var locations = Array("div1", "div2", "div3", "div5", "div6", "div7", "div9", "div10", "div11", "div12"); // list of locations
 	var currVisitors = []; // list of active visitors
 

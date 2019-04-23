@@ -1,21 +1,12 @@
 {
 "items" : [
 	{
-		"key"	:	"sag",
-		"name"	:	"Saguaro",
-		"cost"	:	100,
-		"description"	:	"The saguaro is a giant cactus native to the American Southwest!",
-		"imgpath"	:	"assets/sag.png"
-	},
-
-	{
-		"key"	:	"catnip",
-		"name"	:	"Catnip",
+		"key"	:	"tomato",
+		"name"	:	"Tomato",
 		"cost"	:	25,
-		"description"	:	"Catnip is a tasty treat for our furry feline friends!",
-		"imgpath"	:	"assets/catnip.png"
+		"description"	:	"ketchup",
+		"imgpath"	:	"assets/tomato-plant.png"
 	},
-
 	{
 		"key"	:	"cactus",
 		"name"	:	"Cactus",
@@ -27,7 +18,7 @@
 	{
 		"key"	:	"dandelion",
 		"name"	:	"Dandelion",
-		"cost"	:	5,
+		"cost"	:	10,
 		"description" :	"weed bois",
 		"imgpath"	:	"assets/dandelion.png"
 	},
@@ -50,7 +41,7 @@
 
 	{
 		"key"	:	"mushrooms",
-		"name"	:	"Mushroomss",
+		"name"	:	"Mushrooms",
 		"cost"	:	10,
 		"description" :	"Amanita muscaria",
 		"imgpath"	:	"assets/mushrooms"
