@@ -80,9 +80,10 @@ class Item {
 
     // player buys an item
     buy() {
-        if (money >= this.cost) {
-            money -= this.cost;
+        if (myScore >= this.cost) {
+            myScore -= this.cost;
             this.amountStored++;
+            document.getElementById("currMoney").innerHTML = myScore;
         }
     }
 }
@@ -143,14 +144,7 @@ function closeNav() {
 
 function buyItem(val) {
     console.log(" the function value is " + inventory[val].cost);
-    if (myScore >= inventory[val].cost) {
-
-        myScore = myScore - inventory[val].cost;
-        document.getElementById("currMoney").innerHTML = myScore;
-    }
-    else {
-        alert("Sorry, you do not have enough funds");
-    }
+    inventory[val].buy();
 }
 
 function randVisitor() {
@@ -186,8 +180,6 @@ function deleteVisitor() {
     }
 }
 
-
-
 function removeItem(itemID) {
     console.log(itemID);
     var parent = document.getElementById(itemID).parentNode;
@@ -196,8 +188,6 @@ function removeItem(itemID) {
         parent.removeChild(parent.firstChild);
     }
 }
-
-
 
 function allowDrop(ev) {
     ev.preventDefault();
