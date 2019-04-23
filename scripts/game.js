@@ -89,7 +89,7 @@ class Item {
 
 // request and parse the JSON file containing the items
 function setupInventory() {
-    $.getJSON("data/items.json", function (data) {
+    $.getJSON("../data/items.json", function (data) {
         for (x in data.items) {
             newItem = new Item(data.items[x].name,
                 data.items[x].cost,
@@ -141,23 +141,11 @@ function closeNav() {
     document.getElementById("main").style.right = "8px";
 }
 
-function retrieInventoryPrice(item) {
-
-    $.getJSON("../scripts/data/items.json", function (data) {
-        for (x in data.items) {
-            if (item === data.items[x].key) {
-                return data.items[x].cost;
-            }
-        }
-        return 2;
-    });
-}
-
 function buyItem(val) {
-    console.log(" the function value is " + retrieInventoryPrice(val));
-    if (myScore >= 5) {
+    console.log(" the function value is " + inventory[val].cost);
+    if (myScore >= inventory[val].cost) {
 
-        myScore = myScore - 2;
+        myScore = myScore - inventory[val].cost;
         document.getElementById("currMoney").innerHTML = myScore;
     }
     else {
