@@ -157,9 +157,7 @@ function randVisitor() {
     // console.log(randLocation);
 
     var img = document.createElement("img");
-    if (randVisitor == "assets/raccoon.gif") {
-        img.style.width = '120%';
-    }
+    
     img.src = randVisitor;
     img.className = "visitor";
 
