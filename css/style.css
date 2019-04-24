@@ -116,6 +116,7 @@ body {
 
 .item-card img {
 	width: 100%;
+	max-height: 250px;
 }
 
 .money {
