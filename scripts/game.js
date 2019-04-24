@@ -48,7 +48,8 @@ function mainLoop() {
 
 // item class to be stored in the inventory array
 class Item {
-    constructor(name, cost, description, imgpath) {
+    constructor(key, name, cost, description, imgpath) {
+        this.key = key;
         this.name = name;
         this.cost = cost;
         this.description = description;
@@ -67,6 +68,7 @@ class Item {
             console.log("Placing item " + this.name);
             this.amountStored--;
             this.amountPlaced++;
+            document.getElementById(this.key + "amount1").innerHTML = this.amountStored;
             return true;
         }
         else {
@@ -81,6 +83,7 @@ class Item {
            console.log("Storing item " + this.name);
             this.amountStored++;
             this.amountPlaced--;
+            document.getElementById(this.key + "amount1").innerHTML = this.amountStored;
         }
     }
 
@@ -90,6 +93,8 @@ class Item {
             myScore -= this.cost;
             this.amountStored++;
             document.getElementById("currMoney").innerHTML = myScore;
+            console.log("Buying item: " + this.key);
+            document.getElementById(this.key + "amount1").innerHTML = this.amountStored;
         }
     }
 }
@@ -98,7 +103,8 @@ class Item {
 function setupInventory() {
     $.getJSON("../data/items.json", function (data) {
         for (x in data.items) {
-            newItem = new Item(data.items[x].name,
+            newItem = new Item(data.items[x].key,
+                data.items[x].name,
                 data.items[x].cost,
                 data.items[x].description,
                 data.items[x].imgpath);
