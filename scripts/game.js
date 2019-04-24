@@ -51,6 +51,7 @@ class Item {
     constructor(name, cost, description, imgpath) {
         this.name = name;
         this.cost = cost;
+        this.description = description;
         this.imgpath = imgpath;
 
         // player starts with 0 of an item in inventory
@@ -62,19 +63,24 @@ class Item {
 
     // for placing an item in the world
     place() {
-        console.log("Placing item " + this.name);
-        if (this.amountStored >= 0) {
-            amountStored--;
-            amountPlaced++;
+        if (this.amountStored > 0) {
+            console.log("Placing item " + this.name);
+            this.amountStored--;
+            this.amountPlaced++;
+            return true;
+        }
+        else {
+            // not an available item in the inventory
+            return false;
         }
     }
 
     // for storing an item
     store() {
-        console.log("Storing item " + this.name);
-        if (this.amountPlaced >= 0) {
-            amountStored++;
-            amountPlaced--;
+        if (this.amountPlaced > 0) {
+           console.log("Storing item " + this.name);
+            this.amountStored++;
+            this.amountPlaced--;
         }
     }
 
@@ -187,6 +193,11 @@ function removeItem(itemID) {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
+
+    var removedId = itemID.substr(0, itemID.indexOf(':'));
+    inventory[removedId].store(); 
+
+    console.log("removing item with ID " + itemID);
 }
 
 function allowDrop(ev) {
@@ -196,16 +207,22 @@ function allowDrop(ev) {
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
     ev.dataTransfer.effectAllowed = 'copy';
+    console.log("dragging item " + ev.target.id);
 }
 
 function drop(ev) {
     ev.preventDefault();
     var data = ev.dataTransfer.getData("text");
-    var newitem = ev.target.appendChild(document.getElementById(data).cloneNode(true));
-    document.getElementById(data).setAttribute("draggable", "false");
-    document.getElementById(data).setAttribute("ondragstart", "drag(event)");
-    document.getElementById(data).setAttribute("ondblclick", "removeItem(this.id)");
-    counter = counter + 1;
-    newitem.id = ev.currentTarget.id + counter;
-    ev.target.style.backgroundImage = "none";
+
+    if (inventory[data].place()) {
+        var newitem = ev.target.appendChild(document.getElementById(data).cloneNode(true));
+        document.getElementById(data).setAttribute("draggable", "false");
+        document.getElementById(data).setAttribute("ondragstart", "drag(event)");
+        document.getElementById(data).setAttribute("ondblclick", "removeItem(this.id)");
+        counter = counter + 1;
+        //newitem.id = ev.currentTarget.id + counter;
+        newitem.id = data + ":" + counter;
+        ev.target.style.backgroundImage = "none";
+        console.log("dropping item " + data);
+    }
 }
